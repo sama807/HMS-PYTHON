@@ -1,0 +1,103 @@
+def getdate():
+        import datetime
+        return datetime.datetime.now()
+def client_name():
+    print("Enter client no: 1,2,3 ")
+    print("1- Sama\n2- Zuni\n3- Hasnat\n")
+    client_no= int(input())
+    return client_no
+
+def planDecision():
+    print("Diet or Exercise plan ")
+    print("1- Diet\n2- Exercise")
+    log= int(input())
+    return log
+
+def DietPlan(client_no):
+    if(client_no==1):
+        file= open("SamaDiet.txt","r")
+        print(file.read())
+    elif(client_no==2):
+        file= open("ZuniDiet.txt","r")
+        print(file.read())
+    else:
+         file= open("HasnatDiet.txt","r")
+         print(file.read())
+
+def ExercisePlan(client_no):
+    if(client_no==1 ):
+        file= open("SamaExercise.txt","r")
+        print(file.read())
+    elif(client_no==2):
+         file= open("ZuniExercise.txt","r")
+         print(file.read())
+    else:
+        file= open("HasnatExercise.txt","r")
+        print(file.read())
+
+def logDietPlan(client_no,log):
+    if(client_no==1):
+        file= open("SamaDiet.txt","a")
+        print("\n")
+        file.write("["+str(getdate())+"]"+" "+log)
+
+    elif(client_no==2):
+        file= open("ZuniDiet.txt","a")
+        print("\n")
+        file.write("["+str(getdate())+"]"+" "+log)
+    else:
+        file= open("HasnatDiet.txt","a")
+        print("\n")
+        file.write("["+str(getdate())+"]"+" "+log)
+
+def logExercisePlan(client_no,log):
+     if(client_no==1):
+        file= open("SamaExercise.txt","a")
+        print("\n")
+        file.write("["+str(getdate())+"]"+" "+log)
+     elif(client_no==2):
+        file= open("ZuniExercise.txt","a")
+        print("\n")
+        file.write("["+str(getdate())+"]"+" "+log)
+     else:
+        file= open("HasnatExercise.txt","a")
+        print("\n")
+        file.write("["+str(getdate())+"]"+" "+log)
+
+def Retrieve():
+     no =client_name()
+     plan =planDecision()
+     if(plan ==1):
+         DietPlan(no)
+     else:
+        ExercisePlan(no)
+
+def Log():
+    no =client_name()
+    plan =planDecision()
+    print("\nWhat you want to log: ")
+    log=input()
+    if(plan==1):
+       logDietPlan(no,log)
+    else:
+        logDietPlan(no,log)
+
+
+print("\t\t\tWELCOME TO HEALTH MANAGEMENT SYSTEM!\t\t")
+def health_management_system():
+    print("Do you want to log or retrieve ")
+    print("1- Log\n2- Retrieve")
+    n =int(input())
+    if(n==1):
+        Log()
+    else:
+        Retrieve()
+
+health_management_system()
+print("Want to log or retrieve again ? Press 'y' for yes and 'n' for no")
+choice = input()
+while (choice == 'y'):
+    
+    health_management_system()
+else:
+        print("Thank You!!")
