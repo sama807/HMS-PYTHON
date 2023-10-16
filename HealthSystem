@@ -1,5 +1,6 @@
+import datetime
 def getdate():
-        import datetime
+        
         return datetime.datetime.now()
 def client_name():
     print("Enter client no: 1,2,3 ")
